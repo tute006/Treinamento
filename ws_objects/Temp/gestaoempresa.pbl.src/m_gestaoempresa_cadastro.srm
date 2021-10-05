@@ -1,0 +1,213 @@
+﻿$PBExportHeader$m_gestaoempresa_cadastro.srm
+$PBExportComments$Gestão de empresa - Menu cadastro
+forward
+global type m_gestaoempresa_cadastro from m_gestaoempresa_mdi
+end type
+end forward
+
+global type m_gestaoempresa_cadastro from m_gestaoempresa_mdi
+end type
+global m_gestaoempresa_cadastro m_gestaoempresa_cadastro
+
+on m_gestaoempresa_cadastro.create
+m_gestaoempresa_cadastro=this
+call super::create
+end on
+
+on m_gestaoempresa_cadastro.destroy
+call super::destroy
+end on
+
+type m_arquivo from m_gestaoempresa_mdi`m_arquivo within m_gestaoempresa_cadastro
+end type
+
+on m_arquivo.create
+call super::create
+end on
+
+on m_arquivo.destroy
+call super::destroy
+end on
+
+type m_exportardados from m_gestaoempresa_mdi`m_exportardados within m_arquivo
+end type
+
+on m_exportardados.create
+call super::create
+end on
+
+on m_exportardados.destroy
+call super::destroy
+end on
+
+type m_sair from m_gestaoempresa_mdi`m_sair within m_arquivo
+end type
+
+on m_sair.create
+call super::create
+end on
+
+on m_sair.destroy
+call super::destroy
+end on
+
+type m_cadastro from m_gestaoempresa_mdi`m_cadastro within m_gestaoempresa_cadastro
+end type
+
+on m_cadastro.create
+call super::create
+end on
+
+on m_cadastro.destroy
+call super::destroy
+end on
+
+type m_departamento from m_gestaoempresa_mdi`m_departamento within m_cadastro
+end type
+
+on m_departamento.create
+call super::create
+end on
+
+on m_departamento.destroy
+call super::destroy
+end on
+
+type m_cargo from m_gestaoempresa_mdi`m_cargo within m_cadastro
+end type
+
+on m_cargo.create
+call super::create
+end on
+
+on m_cargo.destroy
+call super::destroy
+end on
+
+type m_empregado from m_gestaoempresa_mdi`m_empregado within m_cadastro
+end type
+
+on m_empregado.create
+call super::create
+end on
+
+on m_empregado.destroy
+call super::destroy
+end on
+
+type m_gravacaoo from m_gestaoempresa_mdi`m_gravacaoo within m_gestaoempresa_cadastro
+end type
+
+on m_gravacaoo.create
+call super::create
+end on
+
+on m_gravacaoo.destroy
+call super::destroy
+end on
+
+type m_incluir from m_gestaoempresa_mdi`m_incluir within m_gravacaoo
+end type
+
+on m_incluir.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_incluir.destroy
+call super::destroy
+end on
+
+type m_adicionar from m_gestaoempresa_mdi`m_adicionar within m_gravacaoo
+end type
+
+on m_adicionar.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_adicionar.destroy
+call super::destroy
+end on
+
+type m_excluir from m_gestaoempresa_mdi`m_excluir within m_gravacaoo
+end type
+
+on m_excluir.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_excluir.destroy
+call super::destroy
+end on
+
+type m_recuperar from m_gestaoempresa_mdi`m_recuperar within m_gravacaoo
+end type
+
+on m_recuperar.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_recuperar.destroy
+call super::destroy
+end on
+
+type m_gravar from m_gestaoempresa_mdi`m_gravar within m_gravacaoo
+end type
+
+on m_gravar.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_gravar.destroy
+call super::destroy
+end on
+
+type m_fechar from m_gestaoempresa_mdi`m_fechar within m_gravacaoo
+end type
+
+on m_fechar.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_fechar.destroy
+call super::destroy
+end on
+
+type m_consulta from m_gestaoempresa_mdi`m_consulta within m_gestaoempresa_cadastro
+end type
+
+on m_consulta.create
+call super::create
+end on
+
+on m_consulta.destroy
+call super::destroy
+end on
+
+type m_janela from m_gestaoempresa_mdi`m_janela within m_gestaoempresa_cadastro
+end type
+
+on m_janela.create
+call super::create
+end on
+
+on m_janela.destroy
+call super::destroy
+end on
+
+type m_ajuda from m_gestaoempresa_mdi`m_ajuda within m_gestaoempresa_cadastro
+end type
+
+on m_ajuda.create
+call super::create
+end on
+
+on m_ajuda.destroy
+call super::destroy
+end on
+

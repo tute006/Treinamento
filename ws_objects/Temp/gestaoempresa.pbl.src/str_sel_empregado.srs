@@ -1,0 +1,9 @@
+﻿$PBExportHeader$str_sel_empregado.srs
+$PBExportComments$Estrutura de seleção de empregado
+global type str_sel_empregado from structure
+	long		Matricula		descriptor "comment" = "Matrícula selecionada pelo usuário"
+	string		Nome		descriptor "comment" = "Nome do empregado"
+	boolean		NovoEmpregado		descriptor "comment" = "indica que o usuário selecionou que quer inserir um novo empregado"
+	boolean		Cancelado		descriptor "comment" = "Indica que o usuário quer cancelar a edição e continuar com a edição corrente"
+end type
+

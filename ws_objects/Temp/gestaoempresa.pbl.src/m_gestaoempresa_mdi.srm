@@ -1,0 +1,287 @@
+﻿$PBExportHeader$m_gestaoempresa_mdi.srm
+$PBExportComments$Gestão de empresa - Menu MDI
+forward
+global type m_gestaoempresa_mdi from m_ancestal_mdi
+end type
+type m_departamento from menu within m_cadastro
+end type
+type m_cargo from menu within m_cadastro
+end type
+type m_empregado from menu within m_cadastro
+end type
+type m_cadastro from m_ancestal_mdi`m_cadastro within m_gestaoempresa_mdi
+m_departamento m_departamento
+m_cargo m_cargo
+m_empregado m_empregado
+end type
+end forward
+
+global type m_gestaoempresa_mdi from m_ancestal_mdi
+end type
+global m_gestaoempresa_mdi m_gestaoempresa_mdi
+
+on m_gestaoempresa_mdi.create
+m_gestaoempresa_mdi=this
+call super::create
+end on
+
+on m_gestaoempresa_mdi.destroy
+call super::destroy
+end on
+
+type m_arquivo from m_ancestal_mdi`m_arquivo within m_gestaoempresa_mdi
+end type
+
+on m_arquivo.create
+call super::create
+end on
+
+on m_arquivo.destroy
+call super::destroy
+end on
+
+type m_exportardados from m_ancestal_mdi`m_exportardados within m_arquivo
+end type
+
+on m_exportardados.create
+call super::create
+end on
+
+on m_exportardados.destroy
+call super::destroy
+end on
+
+type m_sair from m_ancestal_mdi`m_sair within m_arquivo
+end type
+
+on m_sair.create
+call super::create
+end on
+
+on m_sair.destroy
+call super::destroy
+end on
+
+type m_cadastro from m_ancestal_mdi`m_cadastro within m_gestaoempresa_mdi
+m_departamento m_departamento
+m_cargo m_cargo
+m_empregado m_empregado
+end type
+
+on m_cadastro.create
+call super::create
+this.m_departamento=create m_departamento
+this.m_cargo=create m_cargo
+this.m_empregado=create m_empregado
+this.Item[UpperBound(this.Item)+1]=this.m_departamento
+this.Item[UpperBound(this.Item)+1]=this.m_cargo
+this.Item[UpperBound(this.Item)+1]=this.m_empregado
+end on
+
+on m_cadastro.destroy
+call super::destroy
+destroy(this.m_departamento)
+destroy(this.m_cargo)
+destroy(this.m_empregado)
+end on
+
+type m_gravacaoo from m_ancestal_mdi`m_gravacaoo within m_gestaoempresa_mdi
+end type
+
+on m_gravacaoo.create
+call super::create
+end on
+
+on m_gravacaoo.destroy
+call super::destroy
+end on
+
+type m_incluir from m_ancestal_mdi`m_incluir within m_gravacaoo
+end type
+
+on m_incluir.create
+call super::create
+end on
+
+on m_incluir.destroy
+call super::destroy
+end on
+
+type m_adicionar from m_ancestal_mdi`m_adicionar within m_gravacaoo
+end type
+
+on m_adicionar.create
+call super::create
+end on
+
+on m_adicionar.destroy
+call super::destroy
+end on
+
+type m_excluir from m_ancestal_mdi`m_excluir within m_gravacaoo
+end type
+
+on m_excluir.create
+call super::create
+end on
+
+on m_excluir.destroy
+call super::destroy
+end on
+
+type m_recuperar from m_ancestal_mdi`m_recuperar within m_gravacaoo
+end type
+
+on m_recuperar.create
+call super::create
+end on
+
+on m_recuperar.destroy
+call super::destroy
+end on
+
+type m_gravar from m_ancestal_mdi`m_gravar within m_gravacaoo
+end type
+
+on m_gravar.create
+call super::create
+end on
+
+on m_gravar.destroy
+call super::destroy
+end on
+
+type m_fechar from m_ancestal_mdi`m_fechar within m_gravacaoo
+end type
+
+on m_fechar.create
+call super::create
+end on
+
+on m_fechar.destroy
+call super::destroy
+end on
+
+type m_consulta from m_ancestal_mdi`m_consulta within m_gestaoempresa_mdi
+end type
+
+on m_consulta.create
+call super::create
+end on
+
+on m_consulta.destroy
+call super::destroy
+end on
+
+type m_janela from m_ancestal_mdi`m_janela within m_gestaoempresa_mdi
+end type
+
+on m_janela.create
+call super::create
+end on
+
+on m_janela.destroy
+call super::destroy
+end on
+
+type m_ajuda from m_ancestal_mdi`m_ajuda within m_gestaoempresa_mdi
+end type
+
+on m_ajuda.create
+call super::create
+end on
+
+on m_ajuda.destroy
+call super::destroy
+end on
+
+type m_departamento from menu within m_cadastro
+end type
+
+event clicked;openSheet (w_manut_Departamento, w_mdi_GestaoEmpresa, 2, Original!)
+end event
+
+on m_departamento.create
+call super::create
+this.text = "Departamento"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_departamento.destroy
+call super::destroy
+end on
+
+type m_cargo from menu within m_cadastro
+end type
+
+on m_cargo.create
+call super::create
+this.text = "Cargo"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_cargo.destroy
+call super::destroy
+end on
+
+event clicked;openSheet (w_manut_Cargo, w_mdi_GestaoEmpresa, 2, Original!)
+end event
+
+type m_empregado from menu within m_cadastro
+end type
+
+on m_empregado.create
+call super::create
+this.text = "Empregado"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_empregado.destroy
+call super::destroy
+end on
+
+event clicked;openSheet (w_manut_Empregado, w_mdi_GestaoEmpresa, 2, Original!)
+end event
+

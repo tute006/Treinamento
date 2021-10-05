@@ -1,0 +1,533 @@
+﻿$PBExportHeader$m_ancestral.srm
+$PBExportComments$Menu principal de herança
+forward
+global type m_ancestral from menu
+end type
+type m_arquivo from menu within m_ancestral
+end type
+type m_exportardados from menu within m_arquivo
+end type
+type m_sair from menu within m_arquivo
+end type
+type m_arquivo from menu within m_ancestral
+m_exportardados m_exportardados
+m_sair m_sair
+end type
+type m_gravacao from menu within m_ancestral
+end type
+type m_inserir from menu within m_gravacao
+end type
+type m_adicionar from menu within m_gravacao
+end type
+type m_excluir from menu within m_gravacao
+end type
+type m_recuperar from menu within m_gravacao
+end type
+type m_gravar from menu within m_gravacao
+end type
+type m_gravacao from menu within m_ancestral
+m_inserir m_inserir
+m_adicionar m_adicionar
+m_excluir m_excluir
+m_recuperar m_recuperar
+m_gravar m_gravar
+end type
+type m_manutencao from menu within m_ancestral
+end type
+type m_consulta from menu within m_ancestral
+end type
+type m_janela from menu within m_ancestral
+end type
+type m_ajuda from menu within m_ancestral
+end type
+global type m_ancestral from menu
+m_arquivo m_arquivo
+m_gravacao m_gravacao
+m_manutencao m_manutencao
+m_consulta m_consulta
+m_janela m_janela
+m_ajuda m_ajuda
+end type
+end forward
+
+global type m_ancestral from menu
+m_arquivo m_arquivo
+m_gravacao m_gravacao
+m_manutencao m_manutencao
+m_consulta m_consulta
+m_janela m_janela
+m_ajuda m_ajuda
+end type
+global m_ancestral m_ancestral
+
+on m_ancestral.create
+m_ancestral=this
+call super::create
+this.text = "m_ancestral"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_arquivo=create m_arquivo
+this.m_gravacao=create m_gravacao
+this.m_manutencao=create m_manutencao
+this.m_consulta=create m_consulta
+this.m_janela=create m_janela
+this.m_ajuda=create m_ajuda
+this.Item[UpperBound(this.Item)+1]=this.m_arquivo
+this.Item[UpperBound(this.Item)+1]=this.m_gravacao
+this.Item[UpperBound(this.Item)+1]=this.m_manutencao
+this.Item[UpperBound(this.Item)+1]=this.m_consulta
+this.Item[UpperBound(this.Item)+1]=this.m_janela
+this.Item[UpperBound(this.Item)+1]=this.m_ajuda
+end on
+
+on m_ancestral.destroy
+call super::destroy
+destroy(this.m_arquivo)
+destroy(this.m_gravacao)
+destroy(this.m_manutencao)
+destroy(this.m_consulta)
+destroy(this.m_janela)
+destroy(this.m_ajuda)
+end on
+
+type m_arquivo from menu within m_ancestral
+m_exportardados m_exportardados
+m_sair m_sair
+end type
+
+on m_arquivo.create
+call super::create
+this.text = "Arquivo"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_exportardados=create m_exportardados
+this.m_sair=create m_sair
+this.Item[UpperBound(this.Item)+1]=this.m_exportardados
+this.Item[UpperBound(this.Item)+1]=this.m_sair
+end on
+
+on m_arquivo.destroy
+call super::destroy
+destroy(this.m_exportardados)
+destroy(this.m_sair)
+end on
+
+type m_exportardados from menu within m_arquivo
+end type
+
+on m_exportardados.create
+call super::create
+this.text = "Exportar Dados"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exportardados.destroy
+call super::destroy
+end on
+
+type m_sair from menu within m_arquivo
+end type
+
+on m_sair.create
+call super::create
+this.text = "Sair"
+this.microhelp = "Sair da aplicação"
+this.toolbaritemname = "Exit1!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_sair.destroy
+call super::destroy
+end on
+
+type m_gravacao from menu within m_ancestral
+m_inserir m_inserir
+m_adicionar m_adicionar
+m_excluir m_excluir
+m_recuperar m_recuperar
+m_gravar m_gravar
+end type
+
+on m_gravacao.create
+call super::create
+this.visible = false
+this.text = "Gravação"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+this.m_inserir=create m_inserir
+this.m_adicionar=create m_adicionar
+this.m_excluir=create m_excluir
+this.m_recuperar=create m_recuperar
+this.m_gravar=create m_gravar
+this.Item[UpperBound(this.Item)+1]=this.m_inserir
+this.Item[UpperBound(this.Item)+1]=this.m_adicionar
+this.Item[UpperBound(this.Item)+1]=this.m_excluir
+this.Item[UpperBound(this.Item)+1]=this.m_recuperar
+this.Item[UpperBound(this.Item)+1]=this.m_gravar
+end on
+
+on m_gravacao.destroy
+call super::destroy
+destroy(this.m_inserir)
+destroy(this.m_adicionar)
+destroy(this.m_excluir)
+destroy(this.m_recuperar)
+destroy(this.m_gravar)
+end on
+
+type m_inserir from menu within m_gravacao
+end type
+
+on m_inserir.create
+call super::create
+this.text = "Inserir"
+this.toolbaritemvisible = false
+this.toolbaritemname = "Insert2!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_inserir.destroy
+call super::destroy
+end on
+
+event clicked;// evento para adicionar uma linha ao final da datawindow
+parentwindow.triggerEvent ('ue_InserirLinha')
+
+return
+
+end event
+
+type m_adicionar from menu within m_gravacao
+end type
+
+on m_adicionar.create
+call super::create
+this.text = "Adicionar"
+this.toolbaritemvisible = false
+this.toolbaritemname = "Insert3!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_adicionar.destroy
+call super::destroy
+end on
+
+event clicked;// evento para adicionar uma linha ao final da datawindow
+parentwindow.triggerEvent ('ue_AdicionarLinha')
+
+return
+
+end event
+
+type m_excluir from menu within m_gravacao
+end type
+
+on m_excluir.create
+call super::create
+this.text = "Excluir"
+this.toolbaritemvisible = false
+this.toolbaritemname = "DeleteRow!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_excluir.destroy
+call super::destroy
+end on
+
+event clicked;// chama evento para excluir linha 
+parentwindow.triggerEvent ('ue_Excluir')
+
+
+return 
+
+end event
+
+type m_recuperar from menu within m_gravacao
+end type
+
+on m_recuperar.create
+call super::create
+this.text = "Recuperar"
+this.toolbaritemvisible = false
+this.toolbaritemname = "Retrieve!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_recuperar.destroy
+call super::destroy
+end on
+
+event clicked;// chama evento para recuperar os dados
+parentWindow.TriggerEvent ('ue_Recuperar')
+
+// o pronome parent é opcional. É sempre indicado que seja informado mas não obrigatório
+
+return
+end event
+
+type m_gravar from menu within m_gravacao
+end type
+
+on m_gravar.create
+call super::create
+this.text = "Gravar"
+this.toolbaritemvisible = false
+this.toolbaritemname = "Update!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_gravar.destroy
+call super::destroy
+end on
+
+event clicked;// chama evento para gravar os dados
+parentWindow.TriggerEvent ('ue_Gravar')
+
+return
+end event
+
+type m_manutencao from menu within m_ancestral
+end type
+
+on m_manutencao.create
+call super::create
+this.text = "Manutenção"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_manutencao.destroy
+call super::destroy
+end on
+
+type m_consulta from menu within m_ancestral
+end type
+
+on m_consulta.create
+call super::create
+this.text = "Consulta"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_consulta.destroy
+call super::destroy
+end on
+
+type m_janela from menu within m_ancestral
+end type
+
+on m_janela.create
+call super::create
+this.text = "Janela"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_janela.destroy
+call super::destroy
+end on
+
+type m_ajuda from menu within m_ancestral
+end type
+
+on m_ajuda.create
+call super::create
+this.text = "Ajuda"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_ajuda.destroy
+call super::destroy
+end on
+

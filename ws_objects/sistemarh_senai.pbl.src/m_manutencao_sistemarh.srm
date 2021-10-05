@@ -1,0 +1,202 @@
+﻿$PBExportHeader$m_manutencao_sistemarh.srm
+$PBExportComments$Menu de manutenção de registros
+forward
+global type m_manutencao_sistemarh from m_principal_sistemarh
+end type
+end forward
+
+global type m_manutencao_sistemarh from m_principal_sistemarh
+end type
+global m_manutencao_sistemarh m_manutencao_sistemarh
+
+on m_manutencao_sistemarh.create
+m_manutencao_sistemarh=this
+call super::create
+end on
+
+on m_manutencao_sistemarh.destroy
+call super::destroy
+end on
+
+type m_arquivo from m_principal_sistemarh`m_arquivo within m_manutencao_sistemarh
+end type
+
+on m_arquivo.create
+call super::create
+end on
+
+on m_arquivo.destroy
+call super::destroy
+end on
+
+type m_exportardados from m_principal_sistemarh`m_exportardados within m_arquivo
+end type
+
+on m_exportardados.create
+call super::create
+end on
+
+on m_exportardados.destroy
+call super::destroy
+end on
+
+type m_sair from m_principal_sistemarh`m_sair within m_arquivo
+end type
+
+on m_sair.create
+call super::create
+this.toolbaritemvisible = false
+end on
+
+on m_sair.destroy
+call super::destroy
+end on
+
+type m_gravacao from m_principal_sistemarh`m_gravacao within m_manutencao_sistemarh
+end type
+
+on m_gravacao.create
+call super::create
+end on
+
+on m_gravacao.destroy
+call super::destroy
+end on
+
+type m_inserir from m_principal_sistemarh`m_inserir within m_gravacao
+end type
+
+on m_inserir.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_inserir.destroy
+call super::destroy
+end on
+
+type m_adicionar from m_principal_sistemarh`m_adicionar within m_gravacao
+end type
+
+on m_adicionar.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_adicionar.destroy
+call super::destroy
+end on
+
+type m_excluir from m_principal_sistemarh`m_excluir within m_gravacao
+end type
+
+on m_excluir.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_excluir.destroy
+call super::destroy
+end on
+
+type m_recuperar from m_principal_sistemarh`m_recuperar within m_gravacao
+end type
+
+on m_recuperar.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_recuperar.destroy
+call super::destroy
+end on
+
+type m_gravar from m_principal_sistemarh`m_gravar within m_gravacao
+end type
+
+on m_gravar.create
+call super::create
+this.toolbaritemvisible = true
+end on
+
+on m_gravar.destroy
+call super::destroy
+end on
+
+type m_manutencao from m_principal_sistemarh`m_manutencao within m_manutencao_sistemarh
+end type
+
+on m_manutencao.create
+call super::create
+end on
+
+on m_manutencao.destroy
+call super::destroy
+end on
+
+type m_departamento from m_principal_sistemarh`m_departamento within m_manutencao
+end type
+
+on m_departamento.create
+call super::create
+end on
+
+on m_departamento.destroy
+call super::destroy
+end on
+
+type m_pessoas from m_principal_sistemarh`m_pessoas within m_manutencao
+end type
+
+on m_pessoas.create
+call super::create
+end on
+
+on m_pessoas.destroy
+call super::destroy
+end on
+
+type m_dependentes from m_principal_sistemarh`m_dependentes within m_manutencao
+end type
+
+on m_dependentes.create
+call super::create
+end on
+
+on m_dependentes.destroy
+call super::destroy
+end on
+
+type m_consulta from m_principal_sistemarh`m_consulta within m_manutencao_sistemarh
+end type
+
+on m_consulta.create
+call super::create
+end on
+
+on m_consulta.destroy
+call super::destroy
+end on
+
+type m_janela from m_principal_sistemarh`m_janela within m_manutencao_sistemarh
+end type
+
+on m_janela.create
+call super::create
+end on
+
+on m_janela.destroy
+call super::destroy
+end on
+
+type m_ajuda from m_principal_sistemarh`m_ajuda within m_manutencao_sistemarh
+end type
+
+on m_ajuda.create
+call super::create
+end on
+
+on m_ajuda.destroy
+call super::destroy
+end on
+
