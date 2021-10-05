@@ -7,8 +7,27 @@ end forward
 
 global type w_lista_empregado_pessoas from w_manutencao
 string menuname = "m_manutencao_sistemarh"
+event ue_inicializacao2 ( )
 end type
 global w_lista_empregado_pessoas w_lista_empregado_pessoas
+
+event ue_inicializacao2();long ll_MatriculaSelecionada
+
+open (w_Sel_Pessoa)
+
+// recupera retorno
+ll_MatriculaSelecionada = message.Doubleparm
+
+
+if (ll_MatriculaSelecionada = -1) then
+	messageBox ('', 'Operação cancelada')
+	return
+end if
+
+
+return
+
+end event
 
 on w_lista_empregado_pessoas.create
 call super::create
