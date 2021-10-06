@@ -1,0 +1,12 @@
+﻿$PBExportHeader$str_parametros.srs
+$PBExportComments$Estrutura geral de parâmetros
+global type str_parametros from structure
+	string		String_arg[]		descriptor "comment" = "Vetor de string"
+	long		Long_arg[]		descriptor "comment" = "Vetor de long"
+	decimal		Decimal_arg[]		descriptor "comment" = "Vetor de decimal"
+	boolean		Boolean_arg[]		descriptor "comment" = "Vetor de boolean"
+	date		Date_arg[]		descriptor "comment" = "Vetor de date"
+	datetime		Datetime_arg		descriptor "comment" = "Vetor de datetime"
+	boolean		Cancelado		descriptor "comment" = "Indica que usuário cancelou operação"
+end type
+
