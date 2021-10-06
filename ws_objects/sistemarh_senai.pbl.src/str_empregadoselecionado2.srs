@@ -1,0 +1,8 @@
+﻿$PBExportHeader$str_empregadoselecionado2.srs
+$PBExportComments$Informações do empregado selecionado
+global type str_empregadoselecionado2 from structure
+	long		matricula		descriptor "comment" = "Mátricula do empregado"
+	string		nomeempregado		descriptor "comment" = "Nome do empregao"
+	string		ultimonome		descriptor "comment" = "Último no empregado"
+end type
+

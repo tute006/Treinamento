@@ -34,8 +34,45 @@ global w_sel_pessoa w_sel_pessoa
 
 type variables
 long il_MatriculaSelecionada
+long il_MatriculasSelecionadas[]
+long il_QtdPessoasSelecionadas = 0
+
 str_EmpregadoSelecionado istr_EmpregadoSelecionado
 end variables
+forward prototypes
+public function boolean of_verificasepessoajaselecionada (long al_matriculaatestar)
+end prototypes
+
+public function boolean of_verificasepessoajaselecionada (long al_matriculaatestar);// =========================================================================================================
+// = Função: verificar se matrícula já existe no vetor de mátricula selecionada.
+// =
+// = Parâmetros:  1. matrícula selecionada pelo usuário.
+// = Retorno:		true se já existir no vetor. False se não existir
+// ===================================================+======================================================
+
+boolean lb_MatriculaEncontrada
+long ll_NumLinhaCorrente
+long ll_QtdMatriculasSelecionadas
+
+// inicialização
+lb_MatriculaEncontrada = false
+
+
+// determina a quantidade de posições (ou tamanho) do vetor
+ll_QtdMatriculasSelecionadas = upperBound (il_MatriculasSelecionadas)
+
+for ll_NumLinhaCorrente = 1  to ll_QtdMatriculasSelecionadas
+	if (il_MatriculasSelecionadas [ll_NumLinhaCorrente] = al_MatriculaATestar) then
+		lb_MatriculaEncontrada = true
+		exit
+	end if
+next
+
+
+return lb_MatriculaEncontrada
+
+end function
+
 event open;d_Sel_Pessoa.setTransObject (sqlca)
 
 d_Sel_Pessoa.retrieve()
@@ -66,7 +103,7 @@ end on
 
 type cb_ok2 from commandbutton within w_sel_pessoa
 integer x = 2478
-integer y = 388
+integer y = 464
 integer width = 265
 integer height = 112
 integer taborder = 20
@@ -87,7 +124,7 @@ end event
 
 type cb_cancela2 from commandbutton within w_sel_pessoa
 integer x = 2478
-integer y = 524
+integer y = 600
 integer width = 265
 integer height = 112
 integer taborder = 30
@@ -163,7 +200,8 @@ boolean livescroll = true
 borderstyle borderstyle = stylelowered!
 end type
 
-event clicked;string ls_ColunaClicada
+event clicked;boolean lb_PessoaJaSelecionada
+string ls_ColunaClicada
 
 ls_ColunaClicada = dwo.name
 
@@ -171,13 +209,33 @@ if (row = 0) then
 	return
 end if
 
+// seleciona linha
+//selectRow (0, false)
+selectRow (row, true)
 
 il_MatriculaSelecionada = d_Sel_Pessoa.getItemNumber (row, 'codigo')
 
 
-istr_EmpregadoSelecionado.matricula = d_Sel_Pessoa.getItemNumber (row, 'codigo')
-istr_EmpregadoSelecionado.nomeEmpregado = d_Sel_Pessoa.getItemString (row, 'primeironome')
-istr_EmpregadoSelecionado.ultimoNome = d_Sel_Pessoa.getItemString (row, 'ultimonome')
+// verifica, antes de adiconar, se a matrícula já está cadastrada
+lb_PessoaJaSelecionada = of_VerificaSePessoaJaSelecionada (il_MatriculaSelecionada)
+if (not lb_PessoaJaSelecionada) then
+	
+	// incrementa (adiciona) quantidade de pessoas selecionadas
+	//il_QtdPessoasSelecionadas++
+	il_QtdPessoasSelecionadas = il_QtdPessoasSelecionadas + 1
+	
+	// adiciona pessoa seleciona no vetor
+	il_MatriculasSelecionadas[il_QtdPessoasSelecionadas] = il_MatriculaSelecionada
+
+/*	istr_EmpregadoSelecionado[il_QtdPessoasSelecionadas].matricula = d_Sel_Pessoa.getItemNumber (row, 'codigo')
+	istr_EmpregadoSelecionado[il_QtdPessoasSelecionadas].nomeEmpregado = d_Sel_Pessoa.getItemString (row, 'primeironome')
+	istr_EmpregadoSelecionado[il_QtdPessoasSelecionadas].ultimoNome = d_Sel_Pessoa.getItemString (row, 'ultimonome')
+
+
+	istr_EmpregadoSelecionado[il_QtdPessoasSelecionadas].matricula = d_Sel_Pessoa.getItemNumber (row, 'codigo')*/
+//	istr_EmpregadoSelecionado.matricula[il_QtdPessoasSelecionadas] = d_Sel_Pessoa.getItemNumber (row, 'codigo')
+
+end if
 
 
 return
