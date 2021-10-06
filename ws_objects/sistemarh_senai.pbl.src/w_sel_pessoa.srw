@@ -39,6 +39,7 @@ long il_QtdPessoasSelecionadas = 0
 
 str_EmpregadoSelecionado istr_EmpregadoSelecionado
 end variables
+
 forward prototypes
 public function boolean of_verificasepessoajaselecionada (long al_matriculaatestar)
 end prototypes
@@ -76,6 +77,8 @@ end function
 event open;d_Sel_Pessoa.setTransObject (sqlca)
 
 d_Sel_Pessoa.retrieve()
+
+//hhhh
 
 
 end event
