@@ -48,9 +48,11 @@ event open;// parâmetros para conexão com o banco de dados
 // este script pode ser obtido através do menu Tools / Database Profile / Conexão que deseja conectar / Edit
 // selecione a aba preview. Lá será apresentado os parâmetros de conexão. Pressione o botão Copy para copiar e cole
 // no script abaixo.
+// Profile Adventure Works Conection
 SQLCA.DBMS = "ADO.Net"
 SQLCA.AutoCommit = False
-SQLCA.DBParm = "Namespace='System.Data.SqlClient',DataSource='localhost',TrustedConnection=1,Database='AdventureWorks2019'"
+SQLCA.DBParm = "Namespace='System.Data.SqlClient',DataSource='DESKTOP-DBV4DMD\SQLEXPRESS',TrustedConnection=1,Database='AdventureWorks2017'"
+
 
 // conecta com o banco de dados utilizando a transação (conexão) sqlca.
 // como sqlca é a padrão do Powerbuilder, ela pode ser suprimida, ou seja, 
