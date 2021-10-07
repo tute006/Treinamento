@@ -21,6 +21,7 @@ event ue_selecao_linha;call super::ue_selecao_linha;//desmarca todas as linhas
 d_selecao.selectRow( 0, false)
 //marca a linha selecionada 
 d_selecao.selectRow( al_num_linha, true)
+istr_Parametros_Retorno.long_arg[1] = d_selecao.getItemNumber( al_Num_Linha, 'codigo')
 end event
 
 type cb_cancela from w_sel_geral`cb_cancela within w_sel_pessoa
