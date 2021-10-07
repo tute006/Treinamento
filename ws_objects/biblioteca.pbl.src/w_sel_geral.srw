@@ -20,6 +20,7 @@ windowtype windowtype = response!
 long backcolor = 67108864
 string icon = "AppIcon!"
 boolean center = true
+event ue_selecao_linha ( long al_num_linha,  string as_nome_coluna )
 cb_cancela cb_cancela
 cb_ok cb_ok
 d_selecao d_selecao
@@ -29,6 +30,7 @@ global w_sel_geral w_sel_geral
 type variables
 str_parametros istr_Parametros_Retorno
 end variables
+
 event open;d_Selecao.setTransObject (sqlca)
 
 d_Selecao.retrieve()
@@ -118,7 +120,7 @@ if (row = 0) then
 	return
 end if
 
-
+event ue_Selecao_Linha(row, ls_ColunaClicada )
 
 
 return
