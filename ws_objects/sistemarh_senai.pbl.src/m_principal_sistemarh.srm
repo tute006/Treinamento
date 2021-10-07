@@ -249,7 +249,7 @@ call super::destroy
 end on
 
 event clicked;
-OpenSheet (w_Lista_Empregado_Pessoas, w_Mdi_Principal, 0, Cascaded!)
+OpenSheet (w_manut_pessoa, w_Mdi_Principal, 0, Cascaded!)
 
 return
 
