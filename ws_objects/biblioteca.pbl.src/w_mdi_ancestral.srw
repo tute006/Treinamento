@@ -17,16 +17,13 @@ boolean minbox = true
 boolean maxbox = true
 boolean resizable = true
 windowtype windowtype = mdihelp!
+windowstate windowstate = maximized!
 long backcolor = 67108864
 string icon = "AppIcon!"
 boolean center = true
-event ue_gravar ( )
 mdi_1 mdi_1
 end type
 global w_mdi_ancestral w_mdi_ancestral
-
-event ue_gravar();MessageBox ("mdi", "Teste")
-end event
 
 on w_mdi_ancestral.create
 if this.MenuName = "m_ancestral" then this.MenuID = create m_ancestral
