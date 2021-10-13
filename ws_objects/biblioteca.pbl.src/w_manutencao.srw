@@ -236,6 +236,10 @@ end if
 
 end event
 
+event resize;dw_manutencao.width = newwidth - dw_manutencao.x - dw_manutencao.x
+dw_manutencao.height = newheight - dw_manutencao.y - dw_manutencao.y
+end event
+
 type dw_manutencao from datawindow within w_manutencao
 integer x = 32
 integer y = 16
