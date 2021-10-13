@@ -252,7 +252,7 @@ on m_inserir.create
 call super::create
 this.text = "Inserir"
 this.toolbaritemvisible = false
-this.toolbaritemname = "Insert2!"
+this.toolbaritemname = "Insert4!"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -288,7 +288,7 @@ on m_adicionar.create
 call super::create
 this.text = "Adicionar"
 this.toolbaritemvisible = false
-this.toolbaritemname = "Insert3!"
+this.toolbaritemname = "InsertMenuItem!"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -361,7 +361,7 @@ on m_recuperar.create
 call super::create
 this.text = "Recuperar"
 this.toolbaritemvisible = false
-this.toolbaritemname = "Retrieve!"
+this.toolbaritemname = "Retrieve1!"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -398,7 +398,7 @@ on m_gravar.create
 call super::create
 this.text = "Gravar"
 this.toolbaritemvisible = false
-this.toolbaritemname = "Update!"
+this.toolbaritemname = "Save!"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
