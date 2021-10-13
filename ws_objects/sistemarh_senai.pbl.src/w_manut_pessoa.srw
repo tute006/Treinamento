@@ -8,6 +8,8 @@ end forward
 global type w_manut_pessoa from w_manutencao
 string title = "Manutenção de Pessoas"
 string menuname = "m_manutencao_sistemarh"
+boolean ib_ajustalargura = true
+boolean ib_ajustaaltura = true
 end type
 global w_manut_pessoa w_manut_pessoa
 
