@@ -7,6 +7,8 @@ end forward
 
 global type w_cadastrodepartamento from w_manutencao
 string menuname = "m_manutencao_sistemarh"
+boolean ib_ajustalargura = true
+boolean ib_ajustaaltura = true
 end type
 global w_cadastrodepartamento w_cadastrodepartamento
 
