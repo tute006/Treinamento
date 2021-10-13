@@ -191,7 +191,8 @@ event clicked;// Permitir abrir a mesma janela várias vezes (várias instância
 // w_CadastroDepartamento lw_Departamento
 //OpenSheet (lw_Departamento, w_Mdi_Principal, 0, Cascaded!)
 
-OpenSheet (w_CadastroDepartamento, w_Mdi_Principal, 0, Cascaded!)
+//OpenSheet (w_CadastroDepartamento, w_Mdi_Principal, 0, Cascaded!)
+OpenSheetWithParm(w_CadastroDepartamento,Mid(This.Text,5) +','+This.ClassName(),w_Mdi_Principal,0,Layered!)
 
 return
 
@@ -249,7 +250,8 @@ call super::destroy
 end on
 
 event clicked;
-OpenSheet (w_manut_pessoa, w_Mdi_Principal, 0, Cascaded!)
+//OpenSheet (w_manut_pessoa, w_Mdi_Principal, 0, Cascaded!)
+OpenSheetWithParm(w_manut_pessoa,Mid(This.Text,5) +','+This.ClassName(),w_mdi_principal,0,Layered!)
 
 return
 
