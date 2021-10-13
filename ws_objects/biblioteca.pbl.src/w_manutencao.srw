@@ -34,6 +34,10 @@ dw_manutencao dw_manutencao
 end type
 global w_manutencao w_manutencao
 
+type variables
+boolean ib_AjustaLargura
+boolean ib_AjustaAltura
+end variables
 forward prototypes
 public function integer of_arearegulo (integer lado, integer altura)
 end prototypes
@@ -236,8 +240,13 @@ end if
 
 end event
 
-event resize;dw_manutencao.width = newwidth - dw_manutencao.x - dw_manutencao.x
-dw_manutencao.height = newheight - dw_manutencao.y - dw_manutencao.y
+event resize;if(ib_AjustaAltura) Then
+	dw_manutencao.width = newwidth - dw_manutencao.x - dw_manutencao.x
+end if
+
+if(ib_AjustaLargura) Then
+	dw_manutencao.height = newheight - dw_manutencao.y - dw_manutencao.y
+end if
 end event
 
 type dw_manutencao from datawindow within w_manutencao
