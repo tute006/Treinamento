@@ -7,6 +7,8 @@ end forward
 
 global type w_lista_empregado_pessoas from w_manutencao
 string menuname = "m_manutencao_sistemarh"
+boolean ib_ajustalargura = true
+boolean ib_ajustaaltura = true
 event ue_inicializacao2 ( )
 end type
 global w_lista_empregado_pessoas w_lista_empregado_pessoas
