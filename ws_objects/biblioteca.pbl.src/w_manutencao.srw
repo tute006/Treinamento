@@ -38,6 +38,7 @@ type variables
 boolean ib_AjustaLargura
 boolean ib_AjustaAltura
 end variables
+
 forward prototypes
 public function integer of_arearegulo (integer lado, integer altura)
 end prototypes
@@ -191,7 +192,6 @@ dw_Manutencao.setTransObject (sqlca)
 
 // recupera dados na tela
 //this.event ue_Recuperar()
-
 
 post event ue_Inicializacao()
 
