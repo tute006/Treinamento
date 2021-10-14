@@ -28,6 +28,8 @@ end on
 
 event ue_inicializacao;call super::ue_inicializacao;str_parametros lstr_Parametros_Retorno
 
+
+// insere uma linha em branco antes de abri seleção
 dw_manutencao.insertRow(0)
 open (w_Sel_Pessoa)
 
@@ -35,27 +37,32 @@ open (w_Sel_Pessoa)
 // recupera retorno
 lstr_Parametros_Retorno = message.powerObjectParm
 
+// verifica se usuário cancelou seleção
 if lstr_Parametros_Retorno.cancelado then
 	return
 end if
 
+// recupera matrícula informada
 il_MatriculaSelecionada = lstr_Parametros_Retorno.long_arg[1]
 
+// recupera os dados
 event ue_Recuperar()
+
+
 return
 
 end event
 
-event ue_recuperar;call super::ue_recuperar;
+event ue_recuperar;call super::ue_recuperar;// recupera os dados 
 dw_manutencao.retrieve(il_MatriculaSelecionada)
 
 return
 end event
 
 type dw_manutencao from w_manutencao`dw_manutencao within w_manut_pessoa
-integer x = 27
 integer width = 3131
 integer height = 1380
 string dataobject = "d_manut_pessoa"
+boolean ib_gerarauditoria = true
 end type
 
