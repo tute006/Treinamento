@@ -3,7 +3,7 @@ $PBExportComments$Janela manutenção genérica.
 forward
 global type w_manutencao from window
 end type
-type dw_manutencao from datawindow within w_manutencao
+type dw_manutencao from uo_datawindow_ancestral within w_manutencao
 end type
 end forward
 
@@ -34,8 +34,18 @@ dw_manutencao dw_manutencao
 end type
 global w_manutencao w_manutencao
 
+type variables
+protected:
+boolean ib_AjustarLarguraDw = false
+boolean ib_AjustarAlturaDw = false
+
+
+
+end variables
+
 forward prototypes
 public function integer of_arearegulo (integer lado, integer altura)
+public function integer wf_janela ()
 end prototypes
 
 event ue_inserir(long al_numlinha);// insere uma linha na datawindow, na posição da linha atual, empurrando as demais linhas para posição subsequente.
@@ -162,6 +172,10 @@ return Area
 
 end function
 
+public function integer wf_janela ();return 1
+
+end function
+
 on w_manutencao.create
 if this.MenuName = "m_ancestral" then this.MenuID = create m_ancestral
 this.dw_manutencao=create dw_manutencao
@@ -236,23 +250,28 @@ end if
 
 end event
 
-type dw_manutencao from datawindow within w_manutencao
+event resize;
+if (ib_AjustarLarguraDw) then
+	dw_manutencao.width = newWidth - dw_manutencao.x - dw_manutencao.x
+end if
+
+if (ib_AjustarAlturaDw) then
+	dw_manutencao.height = newHeight - dw_manutencao.y - dw_manutencao.y
+end if
+
+return
+
+
+end event
+
+type dw_manutencao from uo_datawindow_ancestral within w_manutencao
+event ue_eventodw ( )
 integer x = 32
-integer y = 16
-integer width = 3127
-integer height = 1272
+integer y = 32
+integer width = 2793
+integer height = 1024
 integer taborder = 20
-string title = "none"
 boolean hscrollbar = true
 boolean vscrollbar = true
-boolean livescroll = true
-borderstyle borderstyle = stylelowered!
 end type
-
-event sqlpreview;
-string ls_Teste
-
-
-ls_Teste = ''
-end event
 
