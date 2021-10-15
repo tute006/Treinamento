@@ -30,6 +30,7 @@ event type boolean ue_aposgravacao ( ref string as_mensagemerro )
 event ue_adicionarlinha ( )
 event ue_inserirlinha ( )
 event ue_inicializacao ( )
+event ue_exportar ( )
 dw_manutencao dw_manutencao
 end type
 global w_manutencao w_manutencao
@@ -162,6 +163,32 @@ return
 end event
 
 event ue_inicializacao();// este evento é executado ao final da fila
+end event
+
+event ue_exportar();string ls_path_Nome 
+string ls_nome_arquivo
+int li_retorno
+string ls_extensao_arquivo
+
+
+li_retorno = GetFileSaveName ( 'Seleciona Arquivo',  ls_path_Nome, ls_nome_arquivo , 'TXT', &
+   "Excel (*.xls),*.xls, Texto(*.txt), *.txt, Todos os Arquivos (*.*),*.*" )
+ 
+IF li_retorno < 1 Then
+  return
+End If
+
+ls_extensao_arquivo = right (ls_nome_arquivo, 3)
+choose case ls_extensao_arquivo
+	case 'txt'
+		dw_manutencao.SaveAs(ls_path_Nome, text!, true)
+		case 'xls'
+		dw_manutencao.SaveAs(ls_path_Nome, Excel5!, true)
+	case else
+		dw_manutencao.SaveAs(ls_path_Nome, text!, true)
+end choose
+
+
 end event
 
 public function integer of_arearegulo (integer lado, integer altura);long Area
