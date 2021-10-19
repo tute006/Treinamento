@@ -25,12 +25,15 @@ type m_recuperar from menu within m_gravacao
 end type
 type m_gravar from menu within m_gravacao
 end type
+type m_exportar from menu within m_gravacao
+end type
 type m_gravacao from menu within m_ancestral
 m_inserir m_inserir
 m_adicionar m_adicionar
 m_excluir m_excluir
 m_recuperar m_recuperar
 m_gravar m_gravar
+m_exportar m_exportar
 end type
 type m_manutencao from menu within m_ancestral
 end type
@@ -200,6 +203,7 @@ m_adicionar m_adicionar
 m_excluir m_excluir
 m_recuperar m_recuperar
 m_gravar m_gravar
+m_exportar m_exportar
 end type
 
 on m_gravacao.create
@@ -226,11 +230,13 @@ this.m_adicionar=create m_adicionar
 this.m_excluir=create m_excluir
 this.m_recuperar=create m_recuperar
 this.m_gravar=create m_gravar
+this.m_exportar=create m_exportar
 this.Item[UpperBound(this.Item)+1]=this.m_inserir
 this.Item[UpperBound(this.Item)+1]=this.m_adicionar
 this.Item[UpperBound(this.Item)+1]=this.m_excluir
 this.Item[UpperBound(this.Item)+1]=this.m_recuperar
 this.Item[UpperBound(this.Item)+1]=this.m_gravar
+this.Item[UpperBound(this.Item)+1]=this.m_exportar
 end on
 
 on m_gravacao.destroy
@@ -240,6 +246,7 @@ destroy(this.m_adicionar)
 destroy(this.m_excluir)
 destroy(this.m_recuperar)
 destroy(this.m_gravar)
+destroy(this.m_exportar)
 end on
 
 type m_inserir from menu within m_gravacao
@@ -422,6 +429,40 @@ parentWindow.TriggerEvent ('ue_Gravar')
 
 return
 end event
+
+type m_exportar from menu within m_gravacao
+end type
+
+event clicked;// chama evento para exportar os dados
+parentWindow.TriggerEvent ('ue_Exportar')
+
+return
+end event
+
+on m_exportar.create
+call super::create
+this.text = "Exportar"
+this.toolbaritemname = "Export2!"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_exportar.destroy
+call super::destroy
+end on
 
 type m_manutencao from menu within m_ancestral
 end type
