@@ -257,6 +257,7 @@ call super::create
 this.text = "Inserir"
 this.toolbaritemvisible = false
 this.toolbaritemname = "Insert2!"
+this.toolbaritemtext = "Inserir"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -293,6 +294,7 @@ call super::create
 this.text = "Adicionar"
 this.toolbaritemvisible = false
 this.toolbaritemname = "Insert3!"
+this.toolbaritemtext = "Adicionar"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -329,6 +331,7 @@ call super::create
 this.text = "Excluir"
 this.toolbaritemvisible = false
 this.toolbaritemname = "DeleteRow!"
+this.toolbaritemtext = "Excluir"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -366,6 +369,7 @@ call super::create
 this.text = "Recuperar"
 this.toolbaritemvisible = false
 this.toolbaritemname = "Retrieve!"
+this.toolbaritemtext = "Recuperar"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -403,6 +407,7 @@ call super::create
 this.text = "Gravar"
 this.toolbaritemvisible = false
 this.toolbaritemname = "Update!"
+this.toolbaritemtext = "Gravar"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
@@ -442,7 +447,9 @@ end event
 on m_exportar.create
 call super::create
 this.text = "Exportar"
+this.toolbaritemvisible = false
 this.toolbaritemname = "Export2!"
+this.toolbaritemtext = "Exportar"
 this.menutextcolor = 134217735
 this.menubackcolor = 134217732
 this.menuhighlightcolor = 134217741
