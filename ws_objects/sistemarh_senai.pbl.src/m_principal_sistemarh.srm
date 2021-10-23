@@ -9,10 +9,13 @@ type m_pessoas from menu within m_manutencao
 end type
 type m_dependentes from menu within m_manutencao
 end type
+type m_processafolha from menu within m_manutencao
+end type
 type m_manutencao from m_ancestral`m_manutencao within m_principal_sistemarh
 m_departamento m_departamento
 m_pessoas m_pessoas
 m_dependentes m_dependentes
+m_processafolha m_processafolha
 end type
 end forward
 
@@ -128,10 +131,22 @@ on m_gravar.destroy
 call super::destroy
 end on
 
+type m_exportar from m_ancestral`m_exportar within m_gravacao
+end type
+
+on m_exportar.create
+call super::create
+end on
+
+on m_exportar.destroy
+call super::destroy
+end on
+
 type m_manutencao from m_ancestral`m_manutencao within m_principal_sistemarh
 m_departamento m_departamento
 m_pessoas m_pessoas
 m_dependentes m_dependentes
+m_processafolha m_processafolha
 end type
 
 on m_manutencao.create
@@ -139,9 +154,11 @@ call super::create
 this.m_departamento=create m_departamento
 this.m_pessoas=create m_pessoas
 this.m_dependentes=create m_dependentes
+this.m_processafolha=create m_processafolha
 this.Item[UpperBound(this.Item)+1]=this.m_departamento
 this.Item[UpperBound(this.Item)+1]=this.m_pessoas
 this.Item[UpperBound(this.Item)+1]=this.m_dependentes
+this.Item[UpperBound(this.Item)+1]=this.m_processafolha
 end on
 
 on m_manutencao.destroy
@@ -149,6 +166,7 @@ call super::destroy
 destroy(this.m_departamento)
 destroy(this.m_pessoas)
 destroy(this.m_dependentes)
+destroy(this.m_processafolha)
 end on
 
 type m_consulta from m_ancestral`m_consulta within m_principal_sistemarh
@@ -279,6 +297,40 @@ this.bitmapgradient = true
 end on
 
 on m_dependentes.destroy
+call super::destroy
+end on
+
+type m_processafolha from menu within m_manutencao
+end type
+
+event clicked;
+OpenSheet (w_Processa_folha, w_Mdi_Principal, 0, Cascaded!)
+
+return
+
+end event
+
+on m_processafolha.create
+call super::create
+this.text = "Processa Folha"
+this.menutextcolor = 134217735
+this.menubackcolor = 134217732
+this.menuhighlightcolor = 134217741
+this.textsize = 8
+this.weight = 400
+this.facename = "Tahoma"
+this.titlebackcolor = 134217730
+this.bitmapbackcolor = 12632256
+this.menubitmaps = true
+this.titlegradient = true
+this.toolbartextcolor = 134217746
+this.toolbarbackcolor = 67108864
+this.toolbarhighlightcolor = 134217741
+this.toolbargradient = true
+this.bitmapgradient = true
+end on
+
+on m_processafolha.destroy
 call super::destroy
 end on
 
