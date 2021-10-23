@@ -3,6 +3,8 @@ $PBExportComments$Janela manutenção genérica.
 forward
 global type w_manutencao from window
 end type
+type mle_filtro from multilineedit within w_manutencao
+end type
 type dw_manutencao from uo_datawindow_ancestral within w_manutencao
 end type
 end forward
@@ -31,6 +33,8 @@ event ue_adicionarlinha ( )
 event ue_inserirlinha ( )
 event ue_inicializacao ( )
 event ue_exportar ( )
+event ue_filtrar ( )
+mle_filtro mle_filtro
 dw_manutencao dw_manutencao
 end type
 global w_manutencao w_manutencao
@@ -191,6 +195,15 @@ end choose
 
 end event
 
+event ue_filtrar();string ls_Filtro
+
+ls_Filtro = mle_Filtro.text
+
+
+dw_Manutencao.setFilter(ls_Filtro)
+dw_Manutencao.filter()
+end event
+
 public function integer of_arearegulo (integer lado, integer altura);long Area
 
 Area = Lado * Altura
@@ -205,12 +218,15 @@ end function
 
 on w_manutencao.create
 if this.MenuName = "m_ancestral" then this.MenuID = create m_ancestral
+this.mle_filtro=create mle_filtro
 this.dw_manutencao=create dw_manutencao
-this.Control[]={this.dw_manutencao}
+this.Control[]={this.mle_filtro,&
+this.dw_manutencao}
 end on
 
 on w_manutencao.destroy
 if IsValid(MenuID) then destroy(MenuID)
+destroy(this.mle_filtro)
 destroy(this.dw_manutencao)
 end on
 
@@ -290,6 +306,22 @@ return
 
 
 end event
+
+type mle_filtro from multilineedit within w_manutencao
+integer x = 869
+integer y = 968
+integer width = 480
+integer height = 400
+integer taborder = 30
+integer textsize = -10
+integer weight = 400
+fontcharset fontcharset = ansi!
+fontpitch fontpitch = variable!
+fontfamily fontfamily = swiss!
+string facename = "Tahoma"
+long textcolor = 33554432
+borderstyle borderstyle = stylelowered!
+end type
 
 type dw_manutencao from uo_datawindow_ancestral within w_manutencao
 event ue_eventodw ( )
