@@ -18,7 +18,7 @@ global type w_processa_folha from window
 integer width = 3365
 integer height = 1408
 boolean titlebar = true
-string title = "Untitled"
+string title = "Folha de pagamento"
 boolean controlmenu = true
 boolean minbox = true
 boolean maxbox = true
@@ -56,18 +56,18 @@ destroy(this.st_mes)
 end on
 
 type cb_processar from commandbutton within w_processa_folha
-integer x = 288
-integer y = 532
+integer x = 402
+integer y = 536
 integer width = 402
 integer height = 112
-integer taborder = 20
+integer taborder = 30
 integer textsize = -10
 integer weight = 400
 fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
 fontfamily fontfamily = swiss!
 string facename = "Tahoma"
-string text = "processar"
+string text = "Processar"
 end type
 
 event clicked;boolean lb_ok
@@ -124,11 +124,11 @@ return
 end event
 
 type em_ano from editmask within w_processa_folha
-integer x = 722
-integer y = 280
+integer x = 389
+integer y = 296
 integer width = 402
 integer height = 112
-integer taborder = 10
+integer taborder = 20
 integer textsize = -10
 integer weight = 400
 fontcharset fontcharset = ansi!
@@ -141,8 +141,8 @@ string mask = "####"
 end type
 
 type em_mes from editmask within w_processa_folha
-integer x = 718
-integer y = 132
+integer x = 389
+integer y = 148
 integer width = 402
 integer height = 112
 integer taborder = 10
